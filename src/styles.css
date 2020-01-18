@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+/* @import 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'; */
+
+body{
+    background-image: url('../src/assets/images/Background3.jpg') !important ;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background: black;
+    
+}
+
+footer{
+    padding: 1.4em;
+    margin-top: 1.4em;
+    color: #000000;
+    background-color: #feda4a;
+    text-align: center;
+ }
