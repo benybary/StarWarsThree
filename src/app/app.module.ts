@@ -8,9 +8,12 @@ import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 
+import {SearchPipe} from './search.pipe'
+
 import {HttpClientModule} from '@angular/common/http';
-import {ReactiveFormsModule} from '@angular/forms';
-import {ApiService} from './services/api.service'
+import {ReactiveFormsModule, FormsModule} from '@angular/forms';
+import {ApiService} from './services/api.service';
+import { ProductItemComponent } from './components/product-item/product-item.component'
   
 @NgModule({
   declarations: [
@@ -18,13 +21,16 @@ import {ApiService} from './services/api.service'
     NavBarComponent,
     HomeComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    ProductItemComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]
