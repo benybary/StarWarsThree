@@ -10,8 +10,11 @@ let Product = require('../models/product');
 productRoute.route('/product/:id').get((req, res)=>{
     Product.findById(req.params.id, (error, data)=>{
         if(error){
-            return next(error);
+            console.log("can't get item");
+
+            return error;
         } else {
+            console.log("here is your product item");            
             res.json(data);
         }
     });
@@ -23,6 +26,8 @@ productRoute.route('/').get((req, res)=>{
         if (error){
             return next(error);
         } else {
+            console.log("Here are your products");
+            console.log(data);           
             res.json(data);
         }
     });

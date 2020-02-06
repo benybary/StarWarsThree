@@ -17,7 +17,7 @@ let Product = new Schema({
     }
 });
 
-module.exports = mongoose.model('Product', Product, 'products')
+module.exports = mongoose.model('Product', Product, 'product')
 
 
 
