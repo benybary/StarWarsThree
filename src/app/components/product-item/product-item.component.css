@@ -1,0 +1,38 @@
+table {
+    color: yellow;
+    padding: 1.5em;
+    max-width: auto;
+
+
+}
+
+td
+{
+        margin: 0 auto;
+        border: solid 2px #ccc;
+        padding: 12px;
+      }
+
+
+.img-fluid{
+    max-width: 100%;
+    height: auto;
+}
+
+
+div{
+    align-items: center;
+    color: yellow;
+}
+
+.container-fluid{
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    flex-flow: row wrap;
+}
+.col-5 {
+    width: 25%;
+    float: left;
+    position: relative;
+}

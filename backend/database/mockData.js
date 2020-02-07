@@ -53,5 +53,10 @@ module.exports = [{
     description: 'A YUMMY pizza',
     price: 100,
     image: 'pizza'
+}, {
+    name: 'Millennium Falcon',
+    description: 'The famous Millennium Falcon with Chewy and Han Solo',
+    price: 40,
+    image: 'falcon'
 }
 ]

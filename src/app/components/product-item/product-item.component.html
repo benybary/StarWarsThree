@@ -1,10 +1,25 @@
-<div class="container">
-    <table class="table table-bordered">
-        <tr *ngFor="let product of myListProducts | search : query" >
-            <td class="align-middle img-fluid"><img src="../../assets/images/products-imges/{{product.image}}.jpg" alt="{{product.name}}"/></td>
-            <td class="align-middle col-sm-3">{{product.description}}</td>
-            <td class="align-middle col-sm-3">{{product.price | currency:'USD':true}}</td>
-            <td class="align-middle col-sm-3">Buy Now</td>
-        </tr>
-    </table>   
-</div>
+
+<div class="container-fluid">
+    <div class="image col-5"><img src="../../assets/images/products-imges/{{productData.image}}.jpg" alt="{{productData.name}}"/></div>
+    <div class="row">
+      <div class="col-5 col-lg-5 col-md-5 sol-sm-5">
+        <table class="table table-striped">
+          <tr>
+            <td>ID</td>
+            <td>{{productData._id}}</td>
+          </tr>
+          <tr>
+            <td>Description</td>
+            <td>{{productData.description}}</td>
+          </tr>
+          <tr>
+            <td>Price</td>
+            <td>{{productData.price | currency:'USD':true}}</td>
+          </tr>
+        </table>
+        <br>
+        <button class="btn btn-warning pull-left" (click)="navigation('')">Go Back</button>
+      </div>
+    </div>
+   
+  </div>

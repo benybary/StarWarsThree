@@ -41,7 +41,7 @@ mongoose.connect(dbConfig.db, { useNewUrlParser: true })
         // inser products to db
         productModel.find()
         .then(products => {
-            if(products.length == 0){
+            if(products.length !== mockProducts.length){
                 // insert one time products
                 let promises = mockProducts.map(product => new productModel(product).save());
                 console.log('All products added');   

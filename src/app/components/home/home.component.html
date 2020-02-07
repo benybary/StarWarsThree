@@ -4,17 +4,20 @@
             <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon">Quick Search</div>
-                    & <input class="form-control" [(ngModel)]="query" placeholder="Enter the name of product...">
+                    &nbsp; <input class="form-control" [(ngModel)]="query" placeholder="Enter the name of product...">
                 </div>
             </div>
         </div>
     </div>
     <table class="table table-bordered">
-        <tr *ngFor="let product of myListProducts | search : query" >
-            <td class="align-middle img-fluid"><img src="../../assets/images/products-imges/{{product.image}}.jpg" alt="{{product.name}}"/></td>
+        <tr *ngFor="let product of myListProducts | search : query">
+            <td class="align-middle img-fluid" [routerLink]="['product', product._id]"><img src="../../assets/images/products-imges/{{product.image}}.jpg" alt="{{product.name}}"/></td>
             <td class="align-middle col-sm-3">{{product.description}}</td>
-            <td class="align-middle col-sm-3">{{product.price | currency:'USD':true}}</td>
-            <td class="align-middle col-sm-3">Buy Now</td>
+            <td class="align-middle col-sm-3">{{product.price | currency:'USD':true}}</td>           
+            <td class="align-middle col-sm-3">
+                <a [routerLink]="['product',product._id]" class="btn btn-primary">Add to Cart</a>
+                <a class="btn btn-danger">Remove</a>
+            </td>
         </tr>
     </table>
       

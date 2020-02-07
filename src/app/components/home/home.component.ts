@@ -4,7 +4,7 @@ import { ApiService } from '../../services/api.service';
 import { ProductService } from '../../services/product.service';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Router } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -13,11 +13,11 @@ import { CommonModule } from '@angular/common';
 })
 export class HomeComponent implements OnInit {
 
-
+  uri = 'http://localhost:4000/api';
 
   myListProducts: Product[] = [];
 
-  constructor(private apiService: ApiService, private productService: ProductService, router: Router) {
+  constructor(private http: HttpClient, private apiService: ApiService, private productService: ProductService, router: Router) {
     
    }
 
@@ -29,6 +29,10 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     const prodObserver = this.apiService.getProducts();
     prodObserver.subscribe((prodData: Product[])=>{this.myListProducts = prodData});
+  }
+
+  getProductByID(id){
+    return this.http.get(`${this.uri}/product/${id}`)
   }
 
  

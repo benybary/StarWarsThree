@@ -1,0 +1,15 @@
+nav{
+    background: rgb(10, 6, 6);
+    
+}
+
+.navbar-brand{
+    color: white;
+}
+.navbar-toggler-icon{
+color: yellow;
+}
+
+.nav-item{
+    color: yellow;
+}

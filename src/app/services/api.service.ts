@@ -25,7 +25,8 @@ export class ApiService {
   }
   // Get product by ID
   getProductByID(id): Observable<any>{
-    let url = `${this.baseUri}/prodid/${id}`;
+    let url = `${this.baseUri}/product/${id}`;
+    console.log("getting item by ID");  
     return this.http.get(url, {headers: this.headers}).pipe(
       map((res:Response)=>{
         return res || {}
