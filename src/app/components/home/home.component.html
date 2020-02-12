@@ -15,7 +15,7 @@
             <td class="align-middle col-sm-3">{{product.description}}</td>
             <td class="align-middle col-sm-3">{{product.price | currency:'USD':true}}</td>           
             <td class="align-middle col-sm-3">
-                <a [routerLink]="['product',product._id]" class="btn btn-primary">Add to Cart</a>
+                <button class="btn btn-primary" (click)="addToCart(product)">Buy Now</button>
                 <a class="btn btn-danger">Remove</a>
             </td>
         </tr>

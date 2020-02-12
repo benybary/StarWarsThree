@@ -13,7 +13,9 @@ import {SearchPipe} from './search.pipe'
 import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 import {ApiService} from './services/api.service';
-import { ProductItemComponent } from './components/product-item/product-item.component'
+import {ProductService} from './services/product.service'
+import { ProductItemComponent } from './components/product-item/product-item.component';
+import { CartComponent } from './components/cart/cart.component'
   
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { ProductItemComponent } from './components/product-item/product-item.com
     AboutComponent,
     ContactComponent,
     ProductItemComponent,
-    SearchPipe
+    SearchPipe,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,7 @@ import { ProductItemComponent } from './components/product-item/product-item.com
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [ApiService],
+  providers: [ApiService, ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

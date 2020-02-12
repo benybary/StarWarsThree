@@ -35,6 +35,11 @@ export class HomeComponent implements OnInit {
     return this.http.get(`${this.uri}/product/${id}`)
   }
 
+  addToCart(product){
+    window.alert('Your product has been added to the cart!');
+    this.productService.addToCart(product);
+  }
+
  
 
 }

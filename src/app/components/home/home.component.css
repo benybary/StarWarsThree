@@ -1,6 +1,8 @@
 table {
     color: yellow;
     padding: 1.5em;
+    max-width: 100%;
+    margin: 0 auto;
 }
 
 .img-fluid{

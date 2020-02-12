@@ -12,6 +12,7 @@ export class ApiService {
   baseUri: String = 'http://localhost:4000/api';
   headers = new HttpHeaders().set('Content-Type', 'application/json')
   prod = new Product;
+  
   //DI
   constructor(private http:HttpClient) { }
   // Get all Products
@@ -20,7 +21,7 @@ export class ApiService {
   }
   // Add Product
   addProductToCart(data): Observable<any>{
-    let url = `${this.baseUri}/add`;
+    let url = `${this.baseUri}/cart/`;
     return this.http.post(url, data).pipe(catchError(this.errorMgt));
   }
   // Get product by ID
@@ -48,6 +49,7 @@ errorMgt(error: HttpErrorResponse){
   sendMessage(data): Observable<any>{
     return data;
   }
+  
 }
 
 

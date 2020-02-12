@@ -3,7 +3,6 @@ import {ApiService} from '../../services/api.service';
 import {ProductService} from '../../services/product.service'
 import {Router, ActivatedRoute} from '@angular/router';
 import {Product} from '../../models/Product'
-import { log } from 'util';
 
 @Component({
   selector: 'app-product-item',
@@ -15,11 +14,17 @@ export class ProductItemComponent implements OnInit {
 
   productID: any;
   productData: any;
+  product: Product;
 
   constructor( private apiService: ApiService,
     private router: Router,
-    private actRoute: ActivatedRoute) { }
+    private actRoute: ActivatedRoute,
+    private productService: ProductService) { }
 
+    addProductToCart(product){
+      window.alert('Your product has been added to the cart!');
+      this.productService.addToCart(product);
+    }
 
     // getProductById(id){
     //   this.apiService.getProductByID(id).subscribe((data)=> {
