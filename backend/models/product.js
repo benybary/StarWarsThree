@@ -14,6 +14,9 @@ let Product = new Schema({
     },
     price: {
         type: Number
+    },
+    quantity: {
+        type: Number, default: 1
     }
 });
 

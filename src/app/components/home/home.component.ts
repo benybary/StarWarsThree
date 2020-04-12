@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
   }
 
   addToCart(product){
-    window.alert('Your product has been added to the cart!');
+    //window.alert('Your product has been added to the cart!');
     this.productService.addToCart(product);
   }
 

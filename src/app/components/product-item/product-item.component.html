@@ -17,9 +17,13 @@
             <td>{{productData.price | currency:'USD':true}}</td>
           </tr>
         </table>
-        <button class="btn btn-primary" (click)="addProductToCart(product)">Buy</button>
+        <button class="btn btn-primary" (click)="addToCart(productData)">Buy Now</button>
         <br>
         <button class="btn btn-warning pull-left" (click)="navigation('')">Go Back</button>
+        <!-- <button class="btn btn-warning pull-left" (click)="addQuantity(productData)">Add Quantity</button>
+        <button class="btn btn-warning pull-left" (click)="removeQuantity(productData)">Remove Quantity</button> -->
+        <!-- <button class="btn btn-warning pull-left" (click)="removeProduct(productData)">Remove Item</button> -->
+
       </div>
     </div>
   </div>

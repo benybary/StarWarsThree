@@ -1,6 +1,17 @@
-<h3>Cart</h3>
-
-<div class="cart-item" *ngFor="let item of items">
-  <span>{{ item.name }}</span>
-  <span>{{ item.price | currency }}</span>
-</div>
+<h2>Cart</h2>
+<br>
+<h3 *ngIf="products.length===0">Your cart is empty!</h3>
+<table class="table table-bordered">
+  <tr *ngFor="let product of products">
+      <td class="align-middle img-fluid" [routerLink]="['../product', product._id]"><img src="../../assets/images/products-imges/{{product.image}}.jpg" alt="{{product.name}}"/></td>
+      <td class="align-middle col-sm-3">{{product.name}}</td>
+      <td class="align-middle col-sm-3">{{product.price | currency:'USD':true}}</td>           
+      <td class="align-middle col-sm-3">{{product.quantity}}</td>
+      <td class="align-middle col-sm-3">{{product.quantity * product.price | currency:'USD':true}}</td>
+      <td class="align-middle col-sm-3">
+          <button class="btn btn-primary pull-left" (click)="addToCart(product)">Add Quantity</button>
+        <button class="btn btn-warning pull-left" (click)="removeQuantity(product)">Remove Quantity</button>
+          <button class="btn btn-danger" (click)="removeProduct(product)">Remove</button>
+      </td>
+  </tr>
+</table>

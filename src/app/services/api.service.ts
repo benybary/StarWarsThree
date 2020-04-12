@@ -19,9 +19,12 @@ export class ApiService {
   getProducts(){
     return this.http.get(`${this.baseUri}`);
   }
+
+  
+
   // Add Product
   addProductToCart(data): Observable<any>{
-    let url = `${this.baseUri}/cart/`;
+    let url = `${this.baseUri}/cart`;
     return this.http.post(url, data).pipe(catchError(this.errorMgt));
   }
   // Get product by ID

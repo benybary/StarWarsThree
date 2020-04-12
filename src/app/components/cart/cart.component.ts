@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {ProductService} from '../../services/product.service'
+import { ActivatedRoute } from '@angular/router';
+import {ProductService} from '../../services/product.service';
+import {Product} from '../../models/Product'; 
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-cart',
@@ -7,13 +10,36 @@ import {ProductService} from '../../services/product.service'
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
+	private total: number = 0;
+	private products: Product[] = [];
+	constructor(
+		private activatedRoute: ActivatedRoute,
+		private productService: ProductService,
+		private apiService: ApiService
+	) { }
 
-  items;
-
-  constructor(private productService: ProductService) { }
-
-  ngOnInit() {
-    this.items = this.productService.getItems();
+	ngOnInit() {
+		this.products = this.productService.showCartItems();
   }
+
+  addToCart(product) {
+	this.productService.addToCart(product);
+	this.products = this.productService.showCartItems();
+  }
+
+  removeQuantity(product) {
+	this.productService.removeQuantity(product);
+	this.products = this.productService.showCartItems();
+
+  }
+
+  removeProduct(product) {
+	this.productService.removeProduct(product);
+	this.products = this.productService.showCartItems();
+
+
+}
+
+
 
 }
