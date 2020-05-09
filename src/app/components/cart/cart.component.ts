@@ -30,14 +30,11 @@ export class CartComponent implements OnInit {
   removeQuantity(product) {
 	this.productService.removeQuantity(product);
 	this.products = this.productService.showCartItems();
-
   }
 
   removeProduct(product) {
 	this.productService.removeProduct(product);
 	this.products = this.productService.showCartItems();
-
-
 }
 
 

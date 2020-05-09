@@ -18,42 +18,40 @@ export class ContactComponent implements OnInit {
     private apiService: ApiService
 
   ) { 
-    this.mainForm();
+    this.formContact = this.formBuilder.group({
+      name: ['', Validators.compose([Validators.required])],
+      email: ['',Validators.compose([Validators.required, Validators.pattern
+        ('[A-Za-z0-9._%-]+@[A-Za-z0-9._%-]+\\.[a-z]{2,3}')])],
+      message: ['', Validators.compose([Validators.required])]
+    });
   }
 
   ngOnInit() {
   }
 
-  mainForm(){
-    this.formContact = this.formBuilder.group({
-      name: ['', [Validators.required]],
-      email: ['',[Validators.required, Validators.pattern('[A-Za-z0-9._%-]+@[A-Za-z0-9._%-]+\\.[a-z]{2,3}')]],
-      message: ['', [Validators.required]]
-    });
-  }
+  // mainForm(){
+  //   this.formContact = this.formBuilder.group({
+  //     name: ['', Validators.compose([Validators.required])],
+  //     email: ['',[Validators.required, Validators.pattern
+  //       ('[A-Za-z0-9._%-]+@[A-Za-z0-9._%-]+\\.[a-z]{2,3}')]],
+  //     message: ['', Validators.compose([Validators.required])]
+  //   });
+  // }
 
   // Getter ti access form control
-  get myForm(){
-    return this.formContact.controls;
-  }
+  // get myForm(){
+  //   return this.formContact.controls;
+  // }
 
   // add comment to database onSubmit()
-  onSubmit(){
-    this.submitted = true;
-    if(!this.formContact.valid){
-      
-      console.log("some field in message is not valid!");
-      alert('please fill all required fields');
-      
-    } else {
-      this.apiService.sendMessage(this.formContact.value).subscribe(
-        (res) => {
-          this.submitted = true;
-          console.log('message sent successfully!')
-          alert('Thanks you!');
-          this.router.navigateByUrl('/')
-        }
-      )
-    }
-  }
+  onSubmit(values){
+    console.log(values);
+      this.apiService.sendMessage(values).subscribe((result)=>{
+        console.log(result);
+        //this.router.navigate([''])
+    });
+  }  
+
 }
+  
+

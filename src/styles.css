@@ -1,11 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 /* @import 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'; */
 
-html {
-    color: blue;
-}
-
-body{
+body, html{
     background-image: url('../src/assets/images/Background3.jpg') !important ;
     background-size: cover;
     background-repeat: no-repeat;
@@ -13,13 +9,25 @@ body{
     -moz-background-size: cover;
     -o-background-size: cover;
     background: black;
+    height: 100%;
     
 }
 
-footer{
-    padding: 1.4em;
-    margin-top: 1.4em;
+#footer{
+    /* padding: 1.4em;
+    margin-top: -100px;
     color: #000000;
     background-color: #feda4a;
     text-align: center;
- }
+    position: relative;
+    height: 100px;
+    bottom: 0;
+    left: 0;
+    width: 100%; */
+    color: #000000;
+    background-color: #feda4a;
+    text-align: center;
+    height: 2em;
+    position: relative;
+    
+}

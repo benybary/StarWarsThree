@@ -16,6 +16,7 @@ import {ApiService} from './services/api.service';
 import {ProductService} from './services/product.service'
 import { ProductItemComponent } from './components/product-item/product-item.component';
 import { CartComponent } from './components/cart/cart.component'
+import { FooterComponent } from './components/footer/footer.component';
   
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { CartComponent } from './components/cart/cart.component'
     ContactComponent,
     ProductItemComponent,
     SearchPipe,
-    CartComponent
+    CartComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

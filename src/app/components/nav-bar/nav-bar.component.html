@@ -1,16 +1,62 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
 <nav class="navbar navbar-expand-sm ">
-    <a class="navbar-brand" href="#" routerLink="/">Star-Shop</a>
-        <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon">
-          </span> 
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-item nav-link" href="#" routerLink="/">Home</a>
-            <a class="nav-item nav-link"  href="#" routerLink="about">About</a>
-            <a class="nav-item nav-link"  href="#" routerLink="contact">Contact</a>
-            <a class="nav-item nav-link"  href="#" routerLink="cart">Cart</a>
-          </div>
-        </div>
+  <a class="navbar-brand" href="#" routerLink="/">Star-Shop</a>
+  <button
+    class="navbar-toggler "
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNavAltMarkup"
+    aria-controls="navbarNavAltMarkup"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon">
+      <div class="black-bar"></div>
+      <div class="black-bar"></div>
+      <div class="black-bar"></div>
+    </span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a
+        class="nav-item nav-link"
+        href="#"
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <i class="fa fa-fw fa-home"></i> Home</a
+      >
+      <a
+        class="nav-item nav-link"
+        href="#"
+        routerLink="about"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <i class="fa fa-fw fa-question-circle"></i>About</a
+      >
+      <a
+        class="nav-item nav-link"
+        href="#"
+        routerLink="contact"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <i class="fa fa-fw fa-envelope"></i>Contact</a
+      >
+      <a
+        class="nav-item nav-link"
+        href="#"
+        routerLink="cart"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <i class="fa fa-fw fa-shopping-cart"></i>Cart</a
+      >
+    </div>
+  </div>
 </nav>

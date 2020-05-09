@@ -1,38 +1,96 @@
 <div class="container">
-    <h1>Contact Us</h1>
-    <div class="col-md-4">
-        <!-- form card -->
-        <div class="card-body">
-            <form [formGroup]="formContact" (ngSubmit)="onSubmit()">
-                <div class="form-group">
-                    <label for="lblName">Your Name</label>
-                    <input name="lblName" type="text" class="form-control" formControlName="name" #name/>
-                    <!-- validator -->
-                    <div class="invalid-feedback" *ngIf="submmited && myForm.name.errors?.required">
-                        Name is required!
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="lblEmail">Your Email</label>
-                    <input type="email" class="form-control" formControlName="email" #email/>
-                    <!-- error -->
-                    <div class="invalid-feedback" *ngIf="submmited && myForm.email.errors?.required">
-                        Email is Required!
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="lblMessage">Your Message</label>
-                    <input type="text" class="form-control" formControlName="message" #message/>
-                    <!-- error -->
-                    <div class="invalid-feedback" *ngIf="submmited && myForm.message.errors?.required">
-                        Message is Required!
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-            </form>
+  <h1>Contact Us</h1>
+  <div class="col-md-4">
+    <!-- form card -->
+    <div class="card-body">
+      <form enctype="application/x-www-form-urlencoded"
+       [formGroup]="formContact" (ngSubmit)="onSubmit(formContact.value)">
+        <div class="form-group">
+          <label for="">Name</label>
+          <input
+            name="lblName"
+            type="text"
+            class="form-control"
+            placeholder="Enter Your Name"
+            formControlName="name"
+            required
+            #name
+          />
+          <!-- validator -->
+          <div
+            class="alert-danger invalid-feedback"
+            *ngIf="
+              !formContact.controls['name'].valid &&
+              (formContact.controls['name'].touched)
+            "
+          >
+            <div [hidden]="!formContact.controls['name'].errors.required">
+              Name is required!
+            </div>
+          </div>
         </div>
+        <div class="form-group">
+          <label for="">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            placeholder="Enter Your Email"
+            formControlName="email"
+            required
+            #email
+          />
+          <!-- error -->
+          <div
+            class="alert-danger invalid-feedback"
+            *ngIf="
+              !formContact.controls['email'].valid &&
+              formContact.controls['email'].touched
+            "
+          >
+            <div
+              [hidden]="
+                !formContact.controls['email'].errors.valid && 
+                (formContact.controls['email'].touched)
+              "
+            >
+              Email is required!
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="">Message</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter you message"
+            formControlName="message"
+            required
+            #message
+          />
+          <!-- error -->
+          <div
+            class="alert-danger invalid-feedback"
+            *ngIf="!formContact.controls['message'].valid &&
+            formContact.controls['message'].touched" 
+          >
+          <div
+          [hidden]="
+          !formContact.controls['message'].errors.valid && 
+          formContact.controls['message'].touched
+          "
+        >
+          Message is required! must be at least 10 letters
+        </div>
+          </div>
+        </div>
+        <button
+        class="btn btn-primary"
+        type="submit"
+        [disabled]="!formContact.valid"
+      >
+        Submit
+      </button>
+      </form>
     </div>
+  </div>
 </div>

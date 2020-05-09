@@ -1,5 +1,6 @@
 nav{
     background: rgb(10, 6, 6);
+    width: 100%;
     
 }
 
@@ -8,8 +9,28 @@ nav{
 }
 .navbar-toggler-icon{
 color: yellow;
+background-color: yellow;
+background: yellow;
 }
 
 .nav-item{
     color: yellow;
 }
+
+.black-bar {
+    width: 35px;
+    height: 5px;
+    background-color: black;
+    margin: 6px 0;
+  }
+
+ /* Current/active navbar link */
+.active {
+    background-color: #dc3545;
+  }
+
+  /* .navbar-dark .nav-item > .nav-link.active  {
+    color:white;
+    background-color: red;
+} */
+  

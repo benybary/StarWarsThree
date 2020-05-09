@@ -6,6 +6,7 @@ let express = require("express"),
 
     dbConfig = require("./database/db"),
     productModel = require("./models/product"),
+    messageModel = require("./models/message"),
     mockProducts = require("./database/mockData");
 
 // Setup port for express
@@ -38,6 +39,7 @@ app.use((req, res, error, next) => {
 mongoose.Promise = global.Promise;
 mongoose.connect(dbConfig.db, { useNewUrlParser: true })
     .then(() => {
+        //messageModel.create();
         // inser products to db
         productModel.find()
         .then(products => {

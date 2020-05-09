@@ -48,9 +48,9 @@ errorMgt(error: HttpErrorResponse){
   console.log(errorMsg);
   return throwError(errorMsg);
 }
-  // add message to DB
+  //add message to DB
   sendMessage(data): Observable<any>{
-    return data;
+   return this.http.post<any>(this.baseUri+ '/message', data);
   }
   
 }

@@ -18,8 +18,8 @@ export class HomeComponent implements OnInit {
   myListProducts: Product[] = [];
 
   constructor(private http: HttpClient, private apiService: ApiService, private productService: ProductService, router: Router) {
-    
-   }
+
+  }
 
   // ngOnInit() {
   //   this.myListProducts = this.productService.findAll();
@@ -28,19 +28,26 @@ export class HomeComponent implements OnInit {
   // TODO Fetch from DB
   ngOnInit(): void {
     const prodObserver = this.apiService.getProducts();
-    prodObserver.subscribe((prodData: Product[])=>{this.myListProducts = prodData});
+    prodObserver.subscribe((prodData: Product[]) => { this.myListProducts = prodData });
   }
 
-  getProductByID(id){
+  getProductByID(id) {
     return this.http.get(`${this.uri}/product/${id}`)
   }
 
-  addToCart(product){
+  addToCart(product) {
     //window.alert('Your product has been added to the cart!');
     this.productService.addToCart(product);
   }
 
- 
+  removeQuantity(product) {
+    this.productService.removeQuantity(product);
+  }
+
+  removeProduct(product) {
+    this.productService.removeProduct(product);
+  }
+
 
 }
 

@@ -16,7 +16,7 @@
             <td class="align-middle col-sm-3">{{product.price | currency:'USD':true}}</td>           
             <td class="align-middle col-sm-3">
                 <button class="btn btn-primary" (click)="addToCart(product)">Buy Now</button>
-                <a class="btn btn-danger">Remove</a>
+                <a class="btn btn-danger" (click)="removeProduct(product)">Remove</a>
             </td>
         </tr>
     </table>
