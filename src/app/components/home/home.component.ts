@@ -12,13 +12,22 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  config: any;
 
   uri = 'http://localhost:4000/api';
 
   myListProducts: Product[] = [];
 
   constructor(private http: HttpClient, private apiService: ApiService, private productService: ProductService, router: Router) {
+    this.config = {
+      itemsPerPage: 5,
+      currentPage: 1,
+      totalItems: this.myListProducts.length
+    };
+  }
 
+  pageChanged(event){
+    this.config.currentPage = event;
   }
 
   // ngOnInit() {

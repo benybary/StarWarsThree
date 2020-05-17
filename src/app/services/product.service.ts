@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Product} from '../models/Product'; 
+import { Product } from '../models/Product';
 @Injectable({
   providedIn: 'root'
 })
@@ -8,58 +8,58 @@ export class ProductService {
   cart = [];
   productQuantity = 1;
 
-  itemExists(product): boolean{
+  itemExists(product): boolean {
     let exists: boolean = false;
     let localStorageCart = JSON.parse(localStorage.getItem('cart'));
     let cart: any[] = !localStorageCart ? [] : localStorageCart;
     cart.map(productItem => {
-      if (product._id === productItem._id) {        
+      if (product._id === productItem._id) {
         exists = true;
-    } 
+      }
       console.log(product.name + " exists: " + exists);
       return exists;
     });
     return exists;
   }
 
-  addToCart(newProduct){    
+  addToCart(newProduct) {
 
-  //1. init updaste cart === []
-  let updatedCart = [];
-  //2. get current cart
-  let localStorageCart = JSON.parse(localStorage.getItem('cart'));
-  localStorageCart = localStorageCart ? localStorageCart : [];
-  //3. find if product exist in current cart
-  let productExists = localStorageCart.some(product => product._id === newProduct._id)
-  if (productExists){
-    //4. loop over items in cart and add quant to product
-    updatedCart = localStorageCart.map(product=> {
-      if (product._id === newProduct._id){
-        //5. in the loop return every product to updated array
-        return {...product, quantity: ++product.quantity}
-      }
-      return product;
-    });
-  } else {
-    updatedCart = [...localStorageCart, {...newProduct, quantity:1}];
+    //1. init update cart === []
+    let updatedCart = [];
+    //2. get current cart
+    let localStorageCart = JSON.parse(localStorage.getItem('cart'));
+    localStorageCart = localStorageCart ? localStorageCart : [];
+    //3. find if product exist in current cart
+    let productExists = localStorageCart.some(product => product._id === newProduct._id)
+    if (productExists) {
+      //4. loop over items in cart and add quant to product
+      updatedCart = localStorageCart.map(product => {
+        if (product._id === newProduct._id) {
+          //5. in the loop return every product to updated array
+          return { ...product, quantity: ++product.quantity }
+        }
+        return product;
+      });
+    } else {
+      updatedCart = [...localStorageCart, { ...newProduct, quantity: 1 }];
+    }
+    //6. save new cart to localstorage
+    localStorage.setItem('cart', JSON.stringify(updatedCart));
+    this.showCartItems();
   }
-  //6. save new cart to localstorage
-  localStorage.setItem('cart', JSON.stringify(updatedCart));
-  this.showCartItems();
-}
-  
 
-    // // get cart from local storage
-    // console.log(JSON.parse(localStorage.getItem('cart')));
-    // //let localStorageCart = JSON.parse(localStorage.getItem('cart'));
-    // let cart: any[] = !localStorageCart ? [] : localStorageCart;   
-    // let porductExists = this.state.cart.some(product)
-    // //add new item,
-    // cart.push(product);
-    // console.log(cart);
-    // // setting new cart in local storage
-    // localStorage.setItem('cart', JSON.stringify(cart));
- 
+
+  // // get cart from local storage
+  // console.log(JSON.parse(localStorage.getItem('cart')));
+  // //let localStorageCart = JSON.parse(localStorage.getItem('cart'));
+  // let cart: any[] = !localStorageCart ? [] : localStorageCart;   
+  // let porductExists = this.state.cart.some(product)
+  // //add new item,
+  // cart.push(product);
+  // console.log(cart);
+  // // setting new cart in local storage
+  // localStorage.setItem('cart', JSON.stringify(cart));
+
 
   // removeFromCart(product){
   //   this.cart.forEach(item => {
@@ -71,7 +71,7 @@ export class ProductService {
   //   console.log(product + " Item removed"); 
   // }
 
-  showCartItems(){
+  showCartItems() {
     this.products = JSON.parse(localStorage.getItem('cart'));
     console.log("these are the items in the cart: " + this.products);
     return this.products;
@@ -101,7 +101,7 @@ export class ProductService {
       }
       return productItem;
     })
-    .filter(productItem => productItem !== null)
+      .filter(productItem => productItem !== null)
     localStorage.setItem('cart', JSON.stringify([...updatedCart]))
   }
 
@@ -112,7 +112,5 @@ export class ProductService {
     // update local storage
     localStorage.setItem('cart', JSON.stringify([...updatedCart]))
 
+  }
 }
-
-}
-

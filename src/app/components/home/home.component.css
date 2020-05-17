@@ -1,5 +1,5 @@
 table {
-    color: yellow;
+    color: yellow; 
     padding: 1.5em;
     max-width: 100%;
     margin: 0 auto;
@@ -18,3 +18,30 @@ div{
 .btn {
     color: white;
 }
+/* .my-pagination{
+    background-color: black;
+    color: white;
+} */
+/* .ngx-pagination a, .ngx-pagination button {
+    cursor: pointer;
+    color: white;
+}
+.ngx-pagination a{
+    color: white;
+} */
+ 
+.my-pagination /deep/ .ngx-pagination .current {
+    background: red;
+    color: white;
+
+  }
+
+  .my-pagination /deep/ .ngx-pagination a{
+    color: white;
+
+  }
+
+  .my-pagination /deep/  a:hover, .ngx-pagination button:hover {
+    background: blue !important; 
+}
+  
