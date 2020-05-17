@@ -30,6 +30,10 @@ div{
     color: white;
 } */
  
+.my-pagination /deep/ {
+    margin: 100px;
+}
+
 .my-pagination /deep/ .ngx-pagination .current {
     background: red;
     color: white;
